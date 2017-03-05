@@ -14,12 +14,13 @@ class Gretting extends Component {
 
 class HelloWordApp extends Component {
   render () {
-    let pic = {
-      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-    }
 
     return (
-      <Image source={pic} style={{width:193, height:110}} />
+      <View style={{alignItems: 'center'}}>
+        <Gretting name='Rossana'/>
+        <Gretting name='luis'/>
+        <Gretting name='test '/>
+      </View>
     );
   }
 }
