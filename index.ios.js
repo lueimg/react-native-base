@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, Image, View } from 'react-native';
+import { AppRegistry, Text, Image, View, TextInput } from 'react-native';
 
-class Blink extends Component {
+class PizzaTraslator extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showText: true
+      text: ''
     }
-
-    setInterval(() => {
-      this.setState({ showText: !this.state.showText })
-    }, 1000)
   }
 
-  render() {
-    let display = this.state.showText ? this.props.text: ' ';
+  render () {
     return (
-      <Text>
-        {display}
-      </Text>
-    ) 
+      <View style={{padding: 10}}>
+        <TextInput style={{height: 30}} placeholder="escribe aqui" onChangeText={(text) => this.setState({text: text}) }/>
+        <Text style={{padding: 10, fontSize: 42}}>
+          {this.state.text.split(' ').map((word) =>  word && '🍕' ).join(' ')}
+        </Text>
+      </View>
+    )
   }
 }
 
@@ -37,4 +35,4 @@ class HelloWordApp extends Component {
   }
 }
 
-AppRegistry.registerComponent('AwesomeProject', () => HelloWordApp);
+AppRegistry.registerComponent('AwesomeProject', () => PizzaTraslator);
