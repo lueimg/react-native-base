@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, Image, View } from 'react-native';
 
-class Gretting extends Component {
-  render () {
+class Blink extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showText: true
+    }
+
+    setInterval(() => {
+      this.setState({ showText: !this.state.showText })
+    }, 1000)
+  }
+
+  render() {
+    let display = this.state.showText ? this.props.text: ' ';
     return (
       <Text>
-        hello {this.props.name}!
+        {display}
       </Text>
-    )
+    ) 
   }
 }
 
@@ -16,10 +28,10 @@ class HelloWordApp extends Component {
   render () {
 
     return (
-      <View style={{alignItems: 'center'}}>
-        <Gretting name='Rossana'/>
-        <Gretting name='luis'/>
-        <Gretting name='test '/>
+      <View>
+        <Blink text='I love to blink'/>
+        <Blink text='other text'/>
+
       </View>
     );
   }
